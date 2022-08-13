@@ -22,6 +22,8 @@ def login(dbref):
     print("\nGetting login details...")
     sleep(0.2)
 
+    user = None
+
     while True:
 
         print("Enter " + colored("Username: ", "green"))
@@ -35,7 +37,7 @@ def login(dbref):
             choice = input()
             if choice == "y":
                 user = register(dbref)
-                return(None)
+                return(user)
 
         elif dbref.child('users').child(username).child('password').get() == password:
             user = dbref.child('users').child(username)
@@ -47,9 +49,12 @@ def login(dbref):
             choice = input()
             if choice == "y":
                 user = register(dbref)
-                return(None)
+                return(user)
 
         print("\nRetrying login....\n")
+
+
+    tutorial()
 
     return(user)
 

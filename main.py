@@ -6,6 +6,9 @@ from pwinput import pwinput
 from colorama import init
 from termcolor import colored
 
+import pyfiglet
+
+
 #Firebase initialisation
 from unicodedata import name
 import firebase_admin
@@ -13,6 +16,8 @@ from firebase_admin import credentials
 from firebase_admin import db
 
 from python_files.auth import *
+
+
 
 #Global variables
 cred = credentials.Certificate("serviceAccountKey.json")
@@ -48,7 +53,7 @@ def start_screen():
         choice = input("Enter your choice: ")
         if choice == "1":
             user = login(dbref)
-            print(user)
+            #print(user)
             if user != None:
                 break
         elif choice == "2":
@@ -66,6 +71,7 @@ def start_screen():
 def main():
     print("Initialising...")
     # initialise()
+    print(colored(pyfiglet.figlet_format("HackerMan"), "blue"))
     start_screen()
     
 
