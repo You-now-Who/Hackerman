@@ -1,4 +1,4 @@
-from ast import While
+
 from time import sleep
 
 from pwinput import pwinput
@@ -16,7 +16,7 @@ from firebase_admin import credentials
 from firebase_admin import db
 
 from python_files.auth import *
-
+from python_files.game import *
 
 
 #Global variables
@@ -67,14 +67,47 @@ def start_screen():
         else:
             print("\nInvalid choice. Kindly enter again.\n")
             sleep(1)
+    return(user)
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#Main screen
+def main_screen(user):
+    while True:
+        print(colored(pyfiglet.figlet_format("HackerMan"), "blue"))
+        print("\nWelcome " + colored(user.child('name').get(), "green") + "!")
+        print(colored("1. Tutorial", "yellow") + "\n" + colored("2. Play", "green") +  "\n" + colored("3. Leaderboard", "blue") +  "\n" + colored("4. Exit", "red"))
+        choice = input("Enter your choice: ")
+        if choice == "1":
+            tutorial()
+        elif choice == "2":
+            play(user)
+        
+        elif choice == "3":
+            leaderboard()
+
+        elif choice == "4":
+            user = None
+            print("\nLogging out...")
+            sleep(1)
+            print("\nExiting...")
+            sleep(1)
+            exit()
+        else:
+            print("\nInvalid choice. Kindly enter again.\n")
+            sleep(1)
+
+
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#Main function
 
 
 def main():
     print("Initialising...")
     # initialise()
+    os.system("cls")
     print(colored("Disclaimer: This game is made simply for fun and educational purposes. The hacking depicted in this game has been simplified and turned into something else completely. This game is to raise awarness about hacking, not to teach you how to hack. \n", "red"))
     print(colored(pyfiglet.figlet_format("HackerMan"), "blue"))
-    start_screen()
+    user = start_screen()
+    main_screen(user)
     
 
 if __name__ == "__main__":

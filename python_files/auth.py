@@ -1,5 +1,3 @@
-
-from ast import While
 from time import sleep
 
 from pwinput import pwinput

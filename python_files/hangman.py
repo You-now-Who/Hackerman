@@ -71,3 +71,53 @@ def hangman():
 
     elif count != limit:
         return(hangman())
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#Scramble
+def jumble(word):
+    # sample() method shuffling the characters of the word
+    random_word = random.sample(word, len(word))
+ 
+    # join() method join the elements
+    # of the iterator(e.g. list) with particular character .
+    jumbled = ''.join(random_word)
+    return jumbled
+ 
+
+#Function for scramble game
+def scramble(word):
+    scrambled = jumble(word)
+    print("The jumbled word is: ",scrambled)
+    choice = input("Identify the word: ")
+    if choice == word:
+        print("You have guessed the word correctly!")
+        return(True)
+    else:
+        print("You have guessed the word incorrectly!")
+        return(False)
+
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#Function for memory game
+def memory():
+    open = random.randint(1,4)
+    gates = [1,2,3,4]
+
+    if open == 1:
+        print("1: " + colored("Open", "green") + "\n2: " + colored("Closed", "red") + "\n3: " + colored("Closed", "red") + "\n4: " + colored("Closed", "red"))
+    if open == 2:
+        print("1: " + colored("Closed", "red") + "\n2: " + colored("Open", "green") + "\n3: " + colored("Closed", "red") + "\n4: " + colored("Closed", "red"))
+    if open == 3:
+        print("1: " + colored("Closed", "red") + "\n2: " + colored("Closed", "red") + "\n3: " + colored("Open", "green") + "\n4: " + colored("Closed", "red"))
+    if open == 4:
+        print("1: " + colored("Closed", "red") + "\n2: " + colored("Closed", "red") + "\n3: " + colored("Closed", "red") + "\n4: " + colored("Open", "green"))
+    print("\n")
+    sleep(1.75)
+    os.system("cls")
+    print("Which gate was open?")
+    choice = int(input("1, 2, 3, or 4: "))
+    if choice == open:
+        print("You have guessed the word correctly!")
+        return(True)
+    else:
+        print("You have guessed the word incorrectly!")
+        return(False)
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
