@@ -17,15 +17,15 @@ def words():
     
 def begin_game(s_time):
     score=0
-    while (time.time()-s_time) <= 2:
+    while (time.time()-s_time) <= 60:
         x=words()
-        print("Type the word: '", x ,"' :")
+        print("Type the word: '" + colored(x, "blue") + "' :")
         ans=input()
         if ans==x:
-            print("Score +1 ")
+            print(colored("Score +1 ", "green"))
             score=score+1
         else:
-            print("Wrong, try again ")
+            print(colored("Wrong, try again ", "red"))
     return score
 
 

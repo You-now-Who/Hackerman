@@ -1,4 +1,4 @@
-
+import os
 from time import sleep
 
 from pwinput import pwinput
@@ -82,7 +82,8 @@ def main_screen(user):
             play(user)
         
         elif choice == "3":
-            leaderboard()
+            print("This feature hasnt been implemented yet")
+
 
         elif choice == "4":
             user = None
