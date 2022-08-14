@@ -2,3 +2,5 @@ firebase-admin
 pwinput
 flask
 pyfiglet
+requests
+termcolor

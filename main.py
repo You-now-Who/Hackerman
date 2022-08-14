@@ -48,6 +48,7 @@ def initialise():
 #Start screen
 def start_screen():
     while True:
+
         print("Hello, and welcome to the world of HackerMan! \n Would you like to login or register?")
         print(colored("1. Login", 'green') + "\n" + colored("2. Register", 'yellow') + "\n" + colored("3. Exit", 'red'))
         choice = input("Enter your choice: ")
@@ -71,6 +72,7 @@ def start_screen():
 def main():
     print("Initialising...")
     # initialise()
+    print(colored("Disclaimer: This game is made simply for fun and educational purposes. The hacking depicted in this game has been simplified and turned into something else completely. This game is to raise awarness about hacking, not to teach you how to hack. \n", "red"))
     print(colored(pyfiglet.figlet_format("HackerMan"), "blue"))
     start_screen()
     
